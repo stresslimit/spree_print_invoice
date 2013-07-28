@@ -7,8 +7,8 @@ anonymous = @order.email =~ /@example.net$/
 
 bounding_box [0,600], :width => 540 do
   move_down 2
-  data = [[Prawn::Table::Cell.new( :text => I18n.t(:billing_address), :font_style => :bold ),
-                Prawn::Table::Cell.new( :text =>I18n.t(:shipping_address), :font_style => :bold )]]
+  data = [[Prawn::Table::Cell.new( :text => Spree.t(:billing_address), :font_style => :bold ),
+                Prawn::Table::Cell.new( :text =>Spree.t(:shipping_address), :font_style => :bold )]]
 
   table data,
     :position           => :center,
@@ -35,7 +35,6 @@ bounding_box [0,600], :width => 540 do
                   "#{@order.ship_address.zipcode} #{@order.ship_address.city} #{(@order.ship_address.state ? @order.ship_address.state.abbr : "")}"]
       data2 << [bill_address.country.name, ship_address.country.name]
       data2 << [bill_address.phone, ship_address.phone]
-      data2 << [@order.shipping_method.try(:name), @order.shipping_method.try(:name)]
     end
     
     table data2,

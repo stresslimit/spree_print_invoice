@@ -16,7 +16,7 @@ fill_color "000000"
 move_down 4
 
 font "Helvetica",  :size => 9,  :style => :bold
-text "#{I18n.t(:order_number)} #{@order.number}", :align => :right
+text "#{Spree.t(:order_number)} #{@order.number}", :align => :right
 
 move_down 2
 font "Helvetica", :size => 9
