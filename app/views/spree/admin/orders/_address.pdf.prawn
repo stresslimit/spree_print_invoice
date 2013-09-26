@@ -24,7 +24,7 @@ bounding_box [0,600], :width => 540 do
 
   bounding_box [0,0], :width => 540 do
     move_down 2
-    if anonymous and Spree::Config[:suppress_anonymous_address]
+    if (anonymous and Spree::Config[:suppress_anonymous_address]) || bill_addess.blank? || ship_address.blank?
       data2 = [[" "," "]] * 6 
     else
       data2 = [["#{bill_address.firstname} #{bill_address.lastname}", "#{ship_address.firstname} #{ship_address.lastname}"],
