@@ -20,7 +20,7 @@ text "#{Spree.t(:order_number)} #{@order.number}", :align => :right
 
 move_down 2
 font "Helvetica", :size => 9
-text "#{I18n.l @order.completed_at.try(:to_date) }", :align => :right
+text "#{I18n.l(@order.completed_at.to_date) if @order.completed_at }", :align => :right
 
 
 render :partial => "address"
